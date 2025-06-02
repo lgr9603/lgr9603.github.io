@@ -1,0 +1,113 @@
+/* 전체 초기화 */
+body * {
+    width: auto;
+    height: auto;
+    margin: 0px 0px;
+    padding: 0px 0px;
+    overflow: hidden;
+}
+
+/* 본문이 아닌 제목, 상/하단 타이틀 글꼴 */
+.titleText {
+    text-align: center;
+    color: white;
+}
+
+/* 화면에 표시하지 않는 상태를 지정하는 클래스 */
+.disabled {
+    display: none;
+}
+
+.hover {
+    text-decoration: underline;
+}
+
+.highlight {
+    opacity: 80%;
+}
+
+/* topPanel, bottomPanel 기본값 초기화 */
+.backPanel {
+    background-color: darkslategray;
+    display: block;
+    position: relative;
+}
+
+/* Top 스타일 */
+#top {
+    width: auto;
+    /* height: 150px; 아래 JS에서 정의함 */
+}
+
+#myname {
+    position: absolute;
+}
+
+#myinfo {
+    position: absolute;
+    top: 15px;
+    left: 30px;
+}
+
+/* 본인 정보 Table */
+#myinfo * {
+    text-align: left;
+}
+
+/* 내 사진 */
+#mypic {
+    width: 100px;
+    height: 100px;
+    margin: 10px 10px 5px 10px;
+    display: inline-block;
+}
+
+#buttonContainer {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+.button {
+    width: 100px;
+    height: 50px;
+    font-size: large;
+    float: right;
+    margin: auto 10px 0px 0px;
+    background: none;
+    border: none;
+}
+
+/* mainPanel 스타일 */
+.mainPanel {
+    width: auto;
+    height: auto;
+    background-color: none;
+    position: relative;
+}
+
+#mypic2 {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+}
+
+.careerContent {
+    position: relative;
+}
+
+.careerContent * {
+    display: inline-block;
+}
+
+hr:nth-child(n) {
+    margin: 15px 0px;
+}
+
+/* Bottom 스타일 */
+#bottom {
+    width: auto;
+    height: 60px;
+    padding: 30px 0px 0px 0px;
+    position: relative;
+}

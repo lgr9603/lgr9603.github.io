@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- <link rel="stylesheet" href="./css/desktopView.css">
+    <script src="./js/desktopView.js"></script> -->
+    <style>
+        body * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        .titleText {
+            text-align: center;
+            color: white;
+        }
+
+        .disabled {
+            display: none;
+        }
+
+        .hover {
+            text-decoration: underline;
+        }
+
+        .highlight {
+            opacity: 80%;
+        }
+
+        .backPanel {
+            background-color: darkslategray;
+            padding: 20px;
+            color: white;
+        }
+
+        #top {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        #myinfo {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        #mypic {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+
+        #buttonContainer {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            padding: 10px 15px;
+            font-size: 1rem;
+            background-color: transparent;
+            border: 1px solid white;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .mainPanel {
+            padding: 20px;
+        }
+
+        #main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #mypic2 {
+            width: 90%;
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        #mainText {
+            text-align: left;
+            max-width: 90%;
+        }
+
+        .careerContent {
+            margin-bottom: 30px;
+        }
+
+        .careerImage {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            margin: 10px 0;
+        }
+
+        #bottom {
+            text-align: center;
+            font-size: 0.9rem;
+            padding: 20px;
+        }
+
+        #pics > hr:nth-child(n) {
+                margin: 10px 0;
+            }
+
+        /* 모바일 화면 최적화 */
+        @media (max-width: 768px) {
+            #myinfo {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .button {
+                width: 100%;
+                max-width: 200px;
+            }
+
+            #mainText,
+            #mainName {
+                text-align: center;
+            }
+
+            .careerContent * {
+                display: block;
+                text-align: center;
+            }
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            function disableToggle(tag) {
+                if (tag.css("display") != "none") {
+                    tag.css("display", "none");
+                }
+                else {
+                    tag.removeAttr("style");
+                }
+            }
+
+            function disable(tag) {
+                tag.css("display", "none");
+            }
+
+            function enable(tag) {
+                tag.removeAttr("style");
+            }
+
+            disable($("#myinfo"));
+            disable($(".mainPanel:nth-child(n+3)"));
+
+            $("#mainButton").click(function () {
+                disableToggle($("#main"));
+                disableToggle($("#myinfo"));
+                disableToggle($("#myname"));
+                disable($("#career"));
+                disable($("#pics"));
+            });
+
+            $("#careerButton").click(function () {
+                disableToggle($("#career"));
+                disable($("#myname"));
+                enable($("#myinfo"));
+                disable($("#pics"));
+                disable($("#main"));
+            });
+
+            $("#picsButton").click(function () {
+                disableToggle($("#pics"));
+                disable($("#myname"));
+                enable($("#myinfo"));
+                disable($("#career"));
+                disable($("#main"));
+            });
+
+            $(".button").hover(function () {
+                $(this).addClass("hover");
+            }, function () {
+                $(this).removeClass("hover");
+            });
+
+            $("a.titleText").hover(function () {
+                $(this).addClass("highlight");
+            }, function () {
+                $(this).removeClass("highlight");
+            });
+        });
+
+    </script>
+
+    <title>Gyeore Lee | 'bout myself</title>
+</head>
+
+<body>
+    <div class="backPanel" id="top">
+        <table id="myinfo">
+            <tbody>
+                <tr id="tableFirstRow">
+                    <td id="picCase" rowspan="3"><img src="./Pics/Top/mypic.jpg" id="mypic" alt="Failed_to_Load"></td>
+                    <td class="titleText">Name : Lee, Gyeore</td>
+                </tr>
+                <tr>
+                    <td class="titleText">Born : 27 June 2003</td>
+                </tr>
+                <tr>
+                    <td class="titleText">Current Career at : Kangwon Nat. Univ.</td>
+                </tr>
+            </tbody>
+        </table>
+        <h1 class="titleText"><b id="myname">Lee, Gyeore</b></h1>
+        <div id="buttonContainer">
+            <button class="button titleText" id="picsButton">School</button>
+            <button class="button titleText" id="careerButton">Life</button>
+            <button class="button titleText" id="mainButton">Introduction</button>
+        </div>
+    </div>
+    <div class="mainPanel" id="main">
+        <img src="./Pics/Main/Intro/mypic.jpg" id="mypic2" alt="Failed_to_Load">
+        <h1 id="mainName"><b id="innerText">Lee, Gyeore</b></h1>
+        <div id="mainText">
+            <p>&nbsp;I am 2nd grade student majoring in Computer Science, and was born June 27th, 2003.
+                I served in the Army as a KATUSA from April 3rd, 2023 to October 2nd, 2024.
+                Now as a student of Kangwon Nat. Univ., I am learning advanced programming, focusing on the Python.</p>
+        </div>
+    </div>
+    <div class="mainPanel" id="career">
+        <div class="careerContent">
+            <h2><b>2025, March</b></h2>
+            <p>Returned to Kangwon Nat. Univ.</p>
+        </div>
+        <hr>
+        <div class="careerContent">
+            <img class="careerImage" src="./Pics/Main/Life/ETS.jpg" alt="Failed_to_Load">
+            <h2><b>2024, October</b></h2>
+            <p>Finished service as an artilleryman</p>
+        </div>
+        <div class="careerContent">
+            <img class="careerImage" src="./Pics/Main/Life/second_LFX.jpg" alt="Failed_to_Load">
+            <h2><b>February</b></h2>
+            <p>2nd LFX</p>
+        </div>
+        <hr>
+        <div class="careerContent">
+            <img class="careerImage" src="./Pics/Main/Life/first_LFX.jpg" alt="Failed_to_Load">
+            <h2><b>2023, October</b></h2>
+            <p>1st LFX (Live Fire Exercise)</p>
+        </div>
+        <div class="careerContent">
+            <img class="careerImage" src="./Pics/Main/Life/grad_KTA.jpg" alt="Failed_to_Load">
+            <h2><b>May</b></h2>
+            <p>Graduated KATUSA training academy</p>
+        </div>
+        <div class="careerContent">
+            <img class="careerImage" src="./Pics/Main/Life/grad.jpg" alt="Failed_to_Load">
+            <h2><b>April</b></h2>
+            <p>Enlisted to the Army</p>
+        </div>
+        <hr>
+        <div class="careerContent">
+            <h2><b>2022, March</b></h2>
+            <p>Enrolled to Kangwon Nat. Univ.</p>
+        </div>
+        <hr>
+        <div class="careerContent">
+            <img class="careerImage" src="./Pics/Main/Life/실험 기구 구상.png" alt="Failed_to_Load">
+            <h2><b>2020, August</b></h2>
+            <p>Designed and made 3-point bending test machine</p>
+        </div>
+        <hr>
+        <div class="careerContent">
+            <img class="careerImage" src="./Pics/Main/Life/DWM1000.png" alt="Failed_to_Load">
+            <h2><b>2019, February</b></h2>
+            <p>Designed <a href="https://github.com/tdh8316/Kibot" style="text-decoration: none;">school guide robot</a>
+                and made prototype of it</p>
+        </div>
+    </div>
+    <div class="mainPanel" id="pics">
+        <div id="Univ">
+            <img class="schoolImage" src="./Pics/Main/School/KNU_pic.jpg" alt="Failed_to_Load">
+            <h2><b>Kangwon National University</b></h2>
+            <p>2022 ~ Now</p>
+        </div>
+        <hr>
+        <div id="High">
+            <img class="schoolImage" src="./Pics/Main/School/Chuncheon_high.jpg" alt="Failed_to_Load">
+            <h2><b>Chuncheon High School</b></h2>
+            <p>2019 ~ 2021 (Covid pandemic)</p>
+        </div>
+        <hr>
+        <div id="Middle">
+            <img class="schoolImage" src="./Pics/Main/School/Kangwon_middle.jpg" alt="Failed_to_Load">
+            <h2><b>Kangwon Middle School</b></h2>
+            <p>2016 ~ 2018</p>
+        </div>
+    </div>
+    <div class="backPanel" id="bottom">
+        <p class="titleText"><a href="mailto:lgr9603@hanmail.net" class="titleText"
+                style="text-decoration: none;">lgr9603@hanmail.net</a> | <a
+                href="https://cse.kangwon.ac.kr/cse/index.do" class="titleText" style="text-decoration: none;">강원대학교
+                컴퓨터공학과</a> | updated, 31 May 2025</p>
+    </div>
+</body>
+
+</html>
