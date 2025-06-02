@@ -204,6 +204,12 @@
             }, function () {
                 $(this).removeClass("highlight");
             });
+
+            $(".picsHover").hover(function () {
+                $(this).addClass("hover");
+            }, function () {
+                $(this).removeClass("hover");
+            });
         });
 
     </script>
@@ -297,19 +303,19 @@
     <div class="mainPanel" id="pics">
         <div id="Univ">
             <img class="schoolImage" src="./Pics/Main/School/KNU_pic.jpg" alt="Failed_to_Load">
-            <h2><b>Kangwon National University</b></h2>
+            <h2 class="picsHover"><a href="https://wwwk.kangwon.ac.kr/www/index.do" style="text-decoration: none; color: black;"><b>Kangwon National University</b></a></h2>
             <p>2022 ~ Now</p>
         </div>
         <hr>
         <div id="High">
             <img class="schoolImage" src="./Pics/Main/School/Chuncheon_high.jpg" alt="Failed_to_Load">
-            <h2><b>Chuncheon High School</b></h2>
+            <h2 class="picsHover"><a href="https://chunchon.gwe.hs.kr/main.do" style="text-decoration: none; color: black;"><b>Chuncheon High School</b></a></h2>
             <p>2019 ~ 2021 (Covid pandemic)</p>
         </div>
         <hr>
         <div id="Middle">
             <img class="schoolImage" src="./Pics/Main/School/Kangwon_middle.jpg" alt="Failed_to_Load">
-            <h2><b>Kangwon Middle School</b></h2>
+            <h2 class="picsHover"><a href="https://kangwon.gwe.ms.kr/main.do" style="text-decoration: none; color: black;"><b>Kangwon Middle School</b></a></h2>
             <p>2016 ~ 2018</p>
         </div>
     </div>
